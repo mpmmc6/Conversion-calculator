@@ -25,12 +25,12 @@ class converterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var converters = [Converter(label: "fahrenheit to celcius", inputType: "°F", outputType: "°C"),
+        /*var converters = [Converter(label: "fahrenheit to celcius", inputType: "°F", outputType: "°C"),
                           Converter(label: "celcius to fahrenheit", inputType: "°C", outputType: "°F"),
                           Converter(label: "miles to kilometers", inputType: "mi", outputType: "km"),
                           Converter(label: "kilometers to miles", inputType: "km", outputType: "mi")]
      
- 
+ */
 //        for element in converters {
 //            print(element)
 //        }
