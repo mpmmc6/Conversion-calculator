@@ -87,7 +87,7 @@
                                                     <color key="titleColor" red="0.0039560566600000003" green="0.004596439963" blue="0.0046399111680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="butConvert:" destination="Ztk-qG-1pv" eventType="touchUpInside" id="CEm-ql-8tx"/>
+                                                    <action selector="selectConverter:" destination="Ztk-qG-1pv" eventType="touchUpInside" id="w6s-FM-lbZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>

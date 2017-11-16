@@ -13,9 +13,9 @@ struct Converter {
     var inputType: String
     var outputType: String
     
-    init(label: String, inputType: String, outputType: String){
+ /*   init(label: String, inputType: String, outputType: String){
         self.label = label
         self.inputType = inputType
         self.outputType = outputType
-    }
+    }*/
 }

@@ -10,103 +10,45 @@ import UIKit
 
 class converterViewController: UIViewController {
     @IBOutlet weak var outputDisplay : UITextField!
-    
     @IBOutlet weak var inputDisplay: UITextField!
     
-    var converters = [
+    let converters = [
                       Converter(label: "fahrenheit to celcius", inputType:   "°F", outputType: "°C"),
                       Converter(label: "celcius to fahrenheit", inputType: "°C", outputType: "°F"),
                       Converter(label: "miles to kilometers", inputType: "mi", outputType: "km"),
                       Converter(label: "kilometers to miles", inputType: "km", outputType: "mi")]
     
-    //var converters = [Converter]()
-    
-//    @IBAction func butConvert(_ sender: Any) {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*var converters = [Converter(label: "fahrenheit to celcius", inputType: "°F", outputType: "°C"),
-                          Converter(label: "celcius to fahrenheit", inputType: "°C", outputType: "°F"),
-                          Converter(label: "miles to kilometers", inputType: "mi", outputType: "km"),
-                          Converter(label: "kilometers to miles", inputType: "km", outputType: "mi")]
-     
- */
-//        for element in converters {
-//            print(element)
-//        }
-        outputDisplay?.text = converters[0].outputType
-        inputDisplay?.text = converters[0].inputType
+        let startIndex = 0
+        outputDisplay?.text = converters[startIndex].outputType
+        inputDisplay?.text = converters[startIndex].inputType
     }
        
     
-   
-    
-    override func didReceiveMemoryWarning() {
+   override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func butConvert(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Choose converter", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+    @IBAction func selectConverter(_ sender: Any) {
         
-        alert.addAction(UIAlertAction(title: "Farenheit to celcius", style: UIAlertActionStyle.default, handler: {
-            (alertAction) -> Void in
-            self.inputDisplay.text = self.converters[0].inputType
-            self.outputDisplay.text = self.converters[0].outputType
-            
-        }))
+        let alert = UIAlertController(title: nil, message: "Choose A Converter:", preferredStyle:
+            UIAlertControllerStyle.actionSheet)
+    
+        for converter in converters{
+          alert.addAction(UIAlertAction(title: converter.label, style: UIAlertActionStyle.default, handler: { (alertAction) -> Void in
         
-        alert.addAction(UIAlertAction(title: "Celcius to Farenheit", style: UIAlertActionStyle.default, handler: {
-            (alertAction) -> Void in
-            self.inputDisplay.text = self.converters[1].inputType
-            self.outputDisplay.text = self.converters[1].outputType
-            
-        }))
+                self.inputDisplay.text = converter.inputType
+                self.outputDisplay.text = converter.outputType
+        
+                }))
+        
+                            }
+        
+            self.present(alert, animated: true, completion: nil)
+        
     }
-    }
-    /*
-        let alert = UIAlertController(title: "Choose converter", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-
-        alert.addAction(UIAlertAction(title: "Farenheit to celcius", style: UIAlertActionStyle.default, handler: {
-            (alertAction) -> Void in
-            self.inputDisplay?.text = self.converters[0].inputType
-            self.outputDisplay?.text = self.converters[0].outputType
-
-        }))
-    
-        alert.addAction(UIAlertAction(title: "Celcius to Farenheit", style: UIAlertActionStyle.default, handler: {
-            (alertAction) -> Void in
-            self.inputDisplay?.text = self.converters[1].inputType
-            self.outputDisplay?.text = self.converters[1].outputType
-
-        }))
-    }
-    /*
-        alert.addAction(UIAlertAction(title: "Miles to kilometers", style: UIAlertActionStyle.default, handler: {
-            (alertAction) -> Void in
-            self.inputDisplay.text = self.converters[2].inputType
-            self.outputDisplay.text = self.converters[2].outputType
-
-        }))
-
-        alert.addAction(UIAlertAction(title: "Kilometers to miles", style: UIAlertActionStyle.default, handler: {
-            (alertAction) -> Void in
-            self.inputDisplay.text =  self.converters[3].inputType
-            self.outputDisplay.text = self.converters[3].outputType
-
-        })) */
-        self.present(alert, animated: true, completion: nil)
-    }
-*/
-    
-    // MARK: - Navigation
-/*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+   
+}
